@@ -1,12 +1,29 @@
 Package: HadesPrerequisites
-Type: Package
-Title: What the Package Does (Title Case)
+Title: Check for system dependecies required by the OHDSI R
+    packages
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Authors@R: 
+    person(given = "Adam",
+           family = "Black",
+           role = c("aut", "cre"),
+           email = "adam.black@odysseusinc.com")
+Description: HADES (formally known as the OHDSI Methods Library)
+    is a set of open source R packages for large scale analytics,
+    including population characterization, population-level causal effect
+    estimation, and patient-level prediction.  HadesPrerequisites is a
+    simple packages that checks system prerequisites needed to
+    successfully install HADES.  If HadesPrerequisites installs
+    successfully then the user should be confident that the rest of the
+    OHDSI R packages will also install and load successfully.  Learn more
+    at <https://ohdsi.github.io/Hades/>.
+License: Apache License (>= 2.0)
+URL: https://ohdsi.github.io/Hades
+Depends: 
+    R (>= 3.2)
 Encoding: UTF-8
 LazyData: true
+Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.0
+Imports: 
+    devtools,
+    rJava
