@@ -57,12 +57,14 @@ if(is.na(os)) {
 }
 
 # Determine version of R that is currently running
-is64BitR <- grepl("64", Sys.info()[["machine"]])
-is32BitR <- grepl("32", Sys.info()[["machine"]])
+is64BitR <- .Machine$sizeof.pointer == 8 # 8 Bytes is 64 bits
+is32BitR <- .Machine$sizeof.pointer == 4 # 4 Bytes is 32 bits
+# is64BitR <- grepl("64", Sys.info()[["machine"]])
+# is32BitR <- grepl("32", Sys.info()[["machine"]])
 if(!xor(is64BitR, is32BitR)) {
   stop(installError("R version (32 or 64 bit) cannot be determined",
                     "Please create a new issue at https://github.com/ablack3/HadesPrerequisites/issues",
-                    "and include the output of Sys.info()[1:5]"))
+                    "and include the output of Sys.info()[1:5] and .Machine$sizeof.pointer"))
 }
 
 
